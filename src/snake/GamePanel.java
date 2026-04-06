@@ -172,7 +172,7 @@ public class GamePanel extends JPanel {
 
 				case KeyEvent.VK_ENTER:
 					if (!enJuego) {
-						reiniciarJuego(); 
+						reiniciarJuego(200); 
 					}
 					break;
 				}
@@ -268,7 +268,7 @@ public class GamePanel extends JPanel {
 		   customFont= cargarFuente("/fonts/depa.ttf", 15f);
 		    g.setColor(Color.WHITE);
 		    g.setFont(customFont);
-		    g.drawString("Velocidad: " + (201-tiempo)+"km/h", 0, 15);
+		    g.drawString("Velocidad: " + (401-tiempo)+"km/h", 0, 15);
 		    g.drawString("Puntuacion: " + puntos, 240, 15);
 		    g.drawString("'P' para pausar", 445, 15);
 
@@ -352,12 +352,12 @@ public class GamePanel extends JPanel {
 		}
 	}
 	
-	public void reiniciarJuego() {
+	public void reiniciarJuego(int tiempoDificultad) {
 		snakeX = 250;
 		snakeY = 100;
 		direction = 'R';
 		puntos = 0;
-		tiempo = 200;
+		tiempo = tiempoDificultad;
 		
 		snakeBody.clear();
 		snakeBody.add(new Point(250, 100));
@@ -533,4 +533,5 @@ public class GamePanel extends JPanel {
             clip.close(); // Libera los recursos de memoria
         }
     }
+	
 }
